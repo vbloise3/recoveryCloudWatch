@@ -9,3 +9,6 @@ aws cloudformation describe-stacks --stack-name jenkins-recovery --query Stacks[
 ##commands to clean up the ec2 instance
 aws cloudformation delete-stack --stack-name jenkins-recovery
 aws cloudformation describe-stacks --stack-name jenkons-recovery
+
+##command to create an ec2 that can auto-failover to a different zonew
+aws cloudformation create-stack --stack-name jenkins-multiaz --template-url https://s3.amazonaws.com/awsinaction/chapter11/multiaz.json --parameters ParameterKey=JenkonsAdminPassword,ParameterValue=myjenkins
