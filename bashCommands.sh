@@ -5,3 +5,7 @@ aws cloudformation create-stack --stack-name jenkins-recovery --template-url htt
 
 ##get output of template create command
 aws cloudformation describe-stacks --stack-name jenkins-recovery --query Stacks[0].Outputs
+
+##commands to clean up the ec2 instance
+aws cloudformation delete-stack --stack-name jenkins-recovery
+aws cloudformation describe-stacks --stack-name jenkons-recovery
