@@ -12,3 +12,6 @@ aws cloudformation describe-stacks --stack-name jenkons-recovery
 
 ##command to create an ec2 that can auto-failover to a different zonew
 aws cloudformation create-stack --stack-name jenkins-multiaz --template-url https://s3.amazonaws.com/awsinaction/chapter11/multiaz.json --parameters ParameterKey=JenkinsAdminPassword,ParameterValue=myjenkins
+
+##describe instances command
+aws ec2 describe-instances --filters "Name=tag:Name,Values=jenkins-multiaz" "Name=instance-state-code,Values=16" --query "Reservations[0].[InstanceId, PublicIpAddress, SubnetId]"
